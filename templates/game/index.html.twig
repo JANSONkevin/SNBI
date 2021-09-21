@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	{% include 'game/_gameboard.html.twig' %}
+	{% include 'game/_rulesSuccess.html.twig' %}
+	{% include 'game/_teamName.html.twig' %}
+	{% include 'game/_settingUp.html.twig' %}
+	{% include 'game/_firstCode.html.twig' %}
+	{% include 'game/_stepCode.html.twig' %}
+	{% include 'game/_stepError.html.twig' %}
+	{% include 'game/_hintCode.html.twig' %}
+	{% include 'game/_hintError.html.twig' %}
+	{% include 'game/_selectHint.html.twig' %}
+	{% include 'game/_showHint.html.twig' %}
+	{% include 'game/_stepDetails.html.twig' %}
+	{% include 'game/_endStep.html.twig' %}
+	{% include 'game/_succes.html.twig' %}
+	{% include 'game/_averageScore.html.twig' %}
+	{% include 'game/_questions.html.twig' %}
+	{% include 'game/_giveUp.html.twig' %}
+
+	<!-- SOUNDS EFFECTS -->
+	<div style="display: none; width:0; height:0">
+		<audio id="bouton-number-audio">
+			<source src="{{ asset('build/bouton_number.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="chute-audio">
+			<source src="{{ asset('build/chute.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="grandit-audio">
+			<source src="{{ asset('build/grandit.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="ink-reveal-audio">
+			<source src="{{ asset('build/ink_reveal.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="jingle-bonus-audio">
+			<source src="{{ asset('build/jingle_bonus.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="jingle-loose-audio">
+			<source src="{{ asset('build/jingle_loose.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="code-erreur">
+			<source src="{{ asset('build/code_erreur.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="jingle-win-audio">
+			<source src="{{ asset('build/jingle_win.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="page-audio">
+			<source src="{{ asset('build/page.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="retrecit-audio">
+			<source src="{{ asset('build/retrecit.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="touche-effacer-audio">
+			<source src="{{ asset('build/touche_effacer.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="touche-retour-audio">
+			<source src="{{ asset('build/touche_retour.mp3') }}" type="audio/mp3">
+		</audio>
+		<audio id="touche-valider-audio">
+			<source src="{{ asset('build/touche_valider.mp3') }}" type="audio/mp3">
+		</audio>
+	</div>
+
+	<!-- MUSICS -->
+	<div style="display: none; width:0; height:0">
+		<audio id="intro-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/intro.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="mini-jeu-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/mini_jeux.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="detente-1-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/detente_1.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="detente-2-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/detente_2.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="mysterieux-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/mysterieux.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="minuscule-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/minuscule.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="angoisse-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/angoisse.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="finale-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/final.wav') }}" type="audio/wav">
+		</audio>
+		<audio id="nage-music" autoplay="true" muted="muted">
+			<source src="{{ asset('build/nage.wav') }}" type="audio/wav">
+		</audio>
+	</div>
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('game') }}
+{% endblock %}

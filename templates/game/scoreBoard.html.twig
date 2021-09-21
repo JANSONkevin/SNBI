@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classements
+{% endblock %}
+
+{% block body %}
+	{% include 'game/_statistiques.html.twig' %}
+	<div id="final-score" class="bg-img text-light" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/background.jpg') }}' );">
+		<div class="final-score-container">
+			<div id="turntable-final-score" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/voix.png') }}' );"></div>
+			<div id="final-text-1" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/texte_score.png') }}' );"></div>
+			<div id="final-score-border" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/cadre_score.png') }}' );"></div>
+			{% if (game) %}
+			<div id="final-score-div" class="text-center">{{game.finalScore}} pts</div>
+			{% else %}
+			<div id="final-score-div" class="text-center">0 pts</div>
+			{% endif %}
+			<div id="final-score-separator" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/separateur.png') }}' );"></div>
+			<div id="final-text-2" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/texte_classement.png') }}' );"></div>
+			<div id="final-classement-border" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/cadre_classement.png') }}' );"></div>
+			{% if (rank) %}
+			<div id="final-classement-div" class="text-center">{{rank.0}}e / {{rank.1}}</div>
+			{% endif %}
+			<div id="statistiques-show" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/bouton_statistiques.png') }}' );"></div>
+			<div id="final-leave" style="background-image: url( '{{ asset('build/questionnaire_fin/score_final/quitter.png') }}' );"></div>
+		</div>
+	</div>
+	<audio id="intro-music" autoplay="true" muted="muted">
+        <source src="{{ asset('build/intro.wav') }}" type="audio/wav">
+    </audio>
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('scoreboard') }}
+	{{ encore_entry_script_tags('leave') }}
+{% endblock %}

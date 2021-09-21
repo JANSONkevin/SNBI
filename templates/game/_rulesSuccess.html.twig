@@ -1,0 +1,11 @@
+<div id="rules-pannel" class="bg-img visually-hidden" style="background-image: url('/build/reglement/background.jpg')">
+    <div class="rules-container">
+        <div id="rules-button" style="background-image: url('/build/reglement/reglement_enable.png')"></div>
+        <div id="success-button" style="background-image: url('/build/reglement/succes_disable.png')"></div>
+        <div id="rules-success-container">
+            {% include 'game/rulesSuccess/_rules.html.twig' %}
+            {% include 'game/rulesSuccess/_success.html.twig' %}
+        </div>
+        <div id="retour" style="background-image: url('{{ asset('build/reglement/retour.png') }}')"></div>
+    </div>
+</div>

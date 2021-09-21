@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+
+<div id="desktop-screen">
+    <div class="p-5 d-flex flex-column align-items-center text-center">
+        <h1>Cette app n'est pas disponible sur tablette ou ordinateur.</h1>
+        <h3>Utilisez un smartphone pour jouer.</h3>
+        <p class="mt-5">Si vous êtes administrateur cliquez ci-dessous: </p>
+        <a class="btn btn-secondary" href="{{ path('app_login') }}">In the rabbit Hole</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

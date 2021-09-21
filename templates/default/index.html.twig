@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+
+    {% include "default/_portrait.html.twig" %}
+    {% include "default/_landscape.html.twig" %}
+
+
+    <audio id="bouton-number-audio">
+        <source src="{{ asset('build/bouton_number.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="touche-effacer-audio">
+        <source src="{{ asset('build/touche_effacer.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="touche-valider-audio">
+        <source src="{{ asset('build/touche_valider.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="page-audio">
+        <source src="{{ asset('build/page.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="touche-retour-audio">
+        <source src="{{ asset('build/touche_retour.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="jingle-loose-audio">
+        <source src="{{ asset('build/jingle_loose.mp3') }}" type="audio/mp3">
+    </audio>
+    <audio id="jingle-win-audio">
+        <source src="{{ asset('build/jingle_win.mp3') }}" type="audio/mp3">
+    </audio>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('landing') }}
+{% endblock %}

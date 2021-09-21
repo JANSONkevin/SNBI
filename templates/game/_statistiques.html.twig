@@ -1,0 +1,31 @@
+<div id="statistiques" class="bg-img text-light visually-hidden" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/background.jpg') }}' );">
+	<div class="statistiques-container">
+		<div id="statistiques-time" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/titre_temps.png') }}' );"></div>
+		<div id="statistiques-border" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/cadre_temps.png') }}' );"></div>
+		{% if game %}
+		{% set minutes = (game.totalTime % (60 * 60) / 60)|round(0, 'floor')|length == 1  %}
+		{% set secondes = (game.totalTime % (60))|round(0, 'floor')|length == 1 %}
+		<div id="statistiques-div" class="text-center">0{{ (game.totalTime % (60 * 60 * 24) / (60 * 60))|round(0, 'floor') }} : {{minutes ? '0' : false}}{{ (game.totalTime % (60 * 60) / 60)|round(0, 'floor') }} : {{secondes ? '0' : false}}{{ (game.totalTime % (60))|round(0, 'floor')}}</div>
+		{% else %}
+		<div id="statistiques-div" class="text-center">00 : 00 : 00</div>
+		{% endif %}
+		<div id="statistiques-succes" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/titre_succes.png') }}' );"></div>
+		{% if (game) %}
+			{% for success in game.gameSuccesses %}
+				{% if success.achieved %}
+					{% set imgUrl = 'build/questionnaire_fin/statistiques/succes_' ~ success.success.id ~'.png' %}
+				{% else %}
+					{% set imgUrl = 'build/questionnaire_fin/statistiques/succes_' ~ success.success.id ~'_lock.png' %}
+				{% endif %}
+				<div id="succes-{{loop.index}}" style="background-image: url( '{{ asset(imgUrl) }}'"></div>
+			{% endfor %}
+		{% else %}
+			{% for i in 1..10 %}
+				{% set imgUrl = 'build/questionnaire_fin/statistiques/succes_' ~ i ~ '_lock.png' %}
+				<div id="succes-{{loop.index}}" class="success-img unachieved" style="background-image: url({{ asset(imgUrl) }})"></div>
+			{% endfor %}
+		{% endif %}
+		<div id="succes-description" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/description_succes_1.png') }}' );"></div>
+		<div id="statistiques-leave" style="background-image: url( '{{ asset('build/questionnaire_fin/statistiques/bouton_retour.png') }}' );"></div>
+	</div>
+</div>

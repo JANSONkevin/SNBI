@@ -1,0 +1,55 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+<div class="text-center text-white mt-5">
+    <h1>Temps par étape pour l'équipe: {{ score.teamName }}</h1>
+    <br>
+</div>
+
+
+<div class="container text-center">
+    <div class="card-custom shadow p-3 mb-5 border-2 rounded-3">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Etapes</th>
+                    {% for nameStep in nameSteps %}
+                    <th scope="col">{{ nameStep.name }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody style="margin:0; padding: 0">
+               <th> Temps </th>
+                {% for step in steps %}
+                    <th>{{ (step.timeEnd - step.timeStart)|date("i:s") }}
+                        </th>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Succès</th>
+                    {% for succes in success %}
+                    <th scope="col">{{ succes.name }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody style="margin:0; padding: 0">
+               <th> Réussi </th>             
+                    {% for point in points %}
+                        {% if point.achieved == true %}
+                            <th scope="col">Oui</th>
+                        {% elseif point.achieved == false %}
+                            <th scope="col">Non</th> 
+                        {% endif %}
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

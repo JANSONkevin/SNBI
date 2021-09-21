@@ -1,0 +1,13 @@
+<div id="average-score" class="bg-img text-light visually-hidden" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/background.jpg') }}' );" >
+    <div class="score-container">
+        <div id="bunny-score" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/lapin.png') }}' );"></div>
+        <div id="turntable-score" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/voix.png') }}' );"></div>
+        <div id="text-1" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/texte_1.png') }}' );"></div>
+
+        <div id="score-border" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/cadre_score.png') }}' );"></div>
+        <div id="score-div" class="text-center">{# {{app.session.all.finalScore}} #}</div>
+        <div id="text-2" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/texte_2.png') }}' );"></div>
+        <div id="score-suite" style="background-image: url( '{{ asset('build/questionnaire_fin/score_intermediaire/suite.png') }}' );"></div>
+    </div>
+</div>
+       {#  {{dump(app.session.all)}} #}

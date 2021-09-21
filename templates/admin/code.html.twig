@@ -1,0 +1,24 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Ajouter codes de validation{% endblock %}
+
+{% block body %}
+<div class="container text-center mt-5 font-cst">
+    <br>
+    <div class="card-custom shadow p-3 mb-5 border-2 rounded-3">
+        <h1 class="text-center">Ajouter un fichier</h1>
+        <div class="d-flex flex-column align-items-center">
+            {{ form_start(form) }}
+            <div class="mb-3">
+                <h3>Fichier csv</h3>
+                <div>{{ form_widget(form.file) }}</div>
+            </div>
+            <div class="text-center">
+                <div>{{ form_widget(form.save) }}</div>
+            </div>
+            {{ form_end(form )}}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<div id="leave-pannel" class="bg-img text-light" style="background-image: url( '{{ asset('build/questionnaire_fin/questions/background.jpg') }}' );">
+		<div>
+			<p>TU AS ABANDONNÉ</p>
+		</div>
+
+		<div id="leave-suite" style="background-image: url( '{{ asset('build/questionnaire_fin/reponses/suite.png') }}' );"></div>
+	</div>
+
+
+</div>{% endblock %}{% block javascripts %}
+{{ encore_entry_script_tags('leave') }}{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+
+<div class="container text-center mt-5 index-admin">
+    <h1 class="mb-5 text-light">Récap des parties</h1>
+    <div class="container global-stat">
+        <h2 class="mb-3"><b>Statistiques moyennes des parties :</b></h2>
+        <div>    
+            <p class="mx-3">Temps de partie : <span><b>{{ (data.gameAvg.time % (60 * 60 * 24) / (60 * 60))|round(0, 'floor') }} heures {{ (data.gameAvg.time % (60 * 60) / 60)|round(0, 'floor') }} minutes et {{ (data.gameAvg.time % (60))|round(0, 'floor')}} secondes</b></span></p>
+            <p class="mx-3">Score final : <span><b>{{ data.gameAvg.score // 1000 }} {{ (data.gameAvg.score - data.gameAvg.score // 1000 *1000)|round(2, 'floor') }}</b></span> points</p>
+            <!-- MDR ok twig https://twig.symfony.com/doc/2.x/filters/round.html round(0, 'floor') ne fonctionne pas.-->
+            <p class="mx-3">Nombre d'indices : <span><b>{{ data.gameAvg.hints|round(2, 'floor') }}</b></span> indices</p>
+            <p class="mx-3">Nombre de succès : <span><b>{{ data.gameAvg.success |round(2, 'floor') }}</b></span> succès</p>
+        </div>
+    </div>
+    <div class="container spec-stat">
+        <h2 class="mb-3"><b>Statistiques des étapes :</b></h2>
+        <div>
+        {% for k, s in data.ss %}
+            <p class="mx-1 my-3" style="width: 26rem;">Etape {{loop.index}} - <b>{{k}}</b> : <span>{{ (s % (60 * 60) / 60)|round(0, 'floor') }} minutes et {{ (s % (60))|round(0, 'floor')}} secondes</span></p>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="container spec-stat">
+        <h2 class="mb-3"><b>Satistiques des succès :</b></h2>
+        <div>
+        {% for k, s in data.gs %}
+            <p class="mx-1 my-3" style="width: 26rem;">Succès {{loop.index}} - <b>{{k}}</b> : <span>{{s|round(2, 'floor')}}%</span> de réussite</p>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
